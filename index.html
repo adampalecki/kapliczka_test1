@@ -57,6 +57,15 @@
 			viewer.toggleSidebar();
 		});
 		
+		viewer.setDescription(`
+		This example shows various ways to use annotations.
+		They can be used to bookmark and describe locations, 
+		move the camera to a predefined point of view on click,
+		and to provide programmable buttons at specific locations.
+		`);
+		
+		
+		
 		
 
 		Potree.loadPointCloud("./pointclouds/PoTree_Kapliczka_test1/metadata.json", "PoTree_Kapliczka_test1", e => {
