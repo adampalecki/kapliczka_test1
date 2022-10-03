@@ -81,6 +81,22 @@
 			scene.addPointCloud(pointcloud);
 			
 			viewer.fitToScreen();
+			
+			{
+				let aTrees = new Potree.Annotation({
+						position: [16.806, -10.910, 9.312],
+						title: "Trees",
+						description: `Point cloud of a small section in Sorvilier, Switzerland. <br>
+							Courtesy of sigeom.sa`,
+					});
+					aTrees.domElement.off("mouseenter");
+					aTrees.domElement.off("mouseleave");
+					aTrees.addEventListener("click", () => {
+						aTrees.setHighlighted(!aTrees.isHighlighted);
+					});
+					sceneSG.annotations.add(aTrees);
+			
+			}
 		});
 
 		
