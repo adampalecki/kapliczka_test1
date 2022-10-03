@@ -86,7 +86,7 @@
 				{
 					let aTrees = new Potree.Annotation({
 							position: [3.08, 1.01, 3.20],
-							title: "Trees",
+							title: "Czujnik 1L",
 							description: `Point cloud of a small section in Sorvilier, Switzerland. <br>
 								Courtesy of sigeom.sa`,
 						});
@@ -101,7 +101,7 @@
 				{
 					let elTitle = $(`
 						<span>
-							About Annotations
+							Czujnik 1P
 							<img src="${Potree.resourcePath}/icons/goto.svg" 
 								name="action_set_scene"
 								class="annotation-action-icon" 
@@ -110,7 +110,8 @@
 					`);
 					elTitle.find("img[name=action_set_scene]").click( (event) => {
 						event.stopPropagation();
-						window.open("https://www.geeksforgeeks.org","", "width=300, height=300");						
+						//window.open("https://www.geeksforgeeks.org","", "width=300, height=300");						
+						
 					});
 					elTitle.toString = () => "About Annotations";
 
