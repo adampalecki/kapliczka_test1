@@ -111,7 +111,6 @@
 					elTitle.find("img[name=action_set_scene]").click( (event) => {
 						event.stopPropagation();
 						window.open("https://www.geeksforgeeks.org","", "width=300, height=300");						
-						//<iframe src="https://www.meteo.pl/um/php/meteorogram_list.php?ntype=0u&fdate=2022100306&row=436&col=181&lang=pl&cname=Wroc%B3aw" title="Proba ustawienia okienka"></iframe>;
 					});
 					elTitle.toString = () => "About Annotations";
 
@@ -121,7 +120,7 @@
 						cameraPosition: [1.773, 12.627, 3.945],
 						cameraTarget: [3.034, 6.490, 3.572],
 						description: `<ul><li>Click on the annotation label to move a predefined view.</li> 
-						<li><iframe width="1000" height="1000" src="https://www.meteo.pl/um/php/meteorogram_list.php?ntype=0u&fdate=2022100306&row=436&col=181&lang=pl&cname=Wroc%B3aw" title="Proba ustawienia okienka"></iframe></li>
+						<li><iframe width="50%" height="50%" src="https://www.meteo.pl/um/php/meteorogram_list.php?ntype=0u&fdate=2022100306&row=436&col=181&lang=pl&cname=Wroc%B3aw" title="Proba ustawienia okienka"></iframe></li>
 						In this case, the action will bring you to another scene and point cloud.</ul>`
 					});
 
