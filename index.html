@@ -83,20 +83,52 @@
 			viewer.fitToScreen();
 			
 			{
-				let aTrees = new Potree.Annotation({
-						position: [3.08, 1.01, 3.20],
-						title: "Trees",
-						description: `Point cloud of a small section in Sorvilier, Switzerland. <br>
-							Courtesy of sigeom.sa`,
-					});
-					aTrees.domElement.off("mouseenter");
-					aTrees.domElement.off("mouseleave");
-					aTrees.addEventListener("click", () => {
-						aTrees.setHighlighted(!aTrees.isHighlighted);
-					});
-					scene.annotations.add(aTrees);
+				{
+					let aTrees = new Potree.Annotation({
+							position: [3.08, 1.01, 3.20],
+							title: "Trees",
+							description: `Point cloud of a small section in Sorvilier, Switzerland. <br>
+								Courtesy of sigeom.sa`,
+						});
+						aTrees.domElement.off("mouseenter");
+						aTrees.domElement.off("mouseleave");
+						aTrees.addEventListener("click", () => {
+							aTrees.setHighlighted(!aTrees.isHighlighted);
+						});
+						scene.annotations.add(aTrees);
+				}
 			
+				{
+					let elTitle = $(`
+						<span>
+							About Annotations
+							<img src="${Potree.resourcePath}/icons/goto.svg" 
+								name="action_set_scene"
+								class="annotation-action-icon" 
+								style="filter: invert(1);" />
+						</span>
+					`);
+					elTitle.find("img[name=action_set_scene]").click( (event) => {
+						event.stopPropagation(); 
+					});
+					elTitle.toString = () => "About Annotations";
+
+					let aAbout1 = new Potree.Annotation({
+						position: [2.925, 6.742, 3.335],
+						title: elTitle,
+						cameraPosition: [1.773, 12.627, 3.945],
+						cameraTarget: [3.034, 6.490, 3.572],
+						description: `<ul><li>Click on the annotation label to move a predefined view.</li> 
+						<li>Click on the icon to execute the specified action.</li>
+						In this case, the action will bring you to another scene and point cloud.</ul>`
+					});
+
+					scene.annotations.add(aAbout1);
+				}
+				
 			}
+			
+			
 		});
 
 		
