@@ -27,10 +27,11 @@
 	<script src="./libs/jstree/jstree.js"></script>
 	<script src="./libs/potree/potree.js"></script>
 	<script src="./libs/plasio/js/laslaz.js"></script>
+	<script src="./libs/three.js/build/three.module.js"></script>
+	<script src="./libs/three.js/build/three.min.js"></script>
 	
 	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
 	<!-- INCLUDE SETTINGS HERE -->
-	<!-- zmiana1 -->
 	
 	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
 		<div id="potree_render_area" style="background-image: url('../build/potree/resources/images/background.jpg');"></div>
@@ -38,8 +39,9 @@
 	</div>
 	
 	<script>
-	
+		
 		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+
 		
 		viewer.setEDLEnabled(true);
 		viewer.setFOV(60);
@@ -85,7 +87,7 @@
 			{
 				{
 					let aTrees = new Potree.Annotation({
-							position: [3.08, 1.01, 3.20],
+							position: [3.08, 1.01, 3.00],
 							title: "Czujnik 1L",
 							description: `Point cloud of a small section in Sorvilier, Switzerland. <br>
 								Courtesy of sigeom.sa`,
@@ -115,7 +117,7 @@
 					elTitle.toString = () => "About Annotations";
 
 					let aAbout1 = new Potree.Annotation({
-						position: [2.925, 6.742, 3.335],
+						position: [2.925, 6.742, 3.135],
 						title: elTitle,
 						cameraPosition: [1.773, 12.627, 3.945],
 						cameraTarget: [3.034, 6.490, 3.572],
@@ -128,9 +130,33 @@
 				
 			}
 			
-			
 		});
 
+	{ // MEASUREMENTS
+				let scene = viewer.scene;
+				
+				{ // SINGLE POINT MEASURE
+					let measure = new Potree.Measure();
+					measure.name = "Czujnik 1L";
+					measure.showDistances = false;
+					measure.showCoordinates = false;
+					measure.maxMarkers = 1;
+					measure.addMarker(new THREE.Vector3(3.08, 1.01, 3.20));
+					
+					scene.addMeasurement(measure);
+				}
+				
+					{ // SINGLE POINT MEASURE
+					let measure = new Potree.Measure();
+					measure.name = "Czujnik 1P";
+					measure.showDistances = false;
+					measure.showCoordinates = false;
+					measure.maxMarkers = 1;
+					measure.addMarker(new THREE.Vector3(2.925, 6.742, 3.255));
+					
+					scene.addMeasurement(measure);
+				}
+	}
 		
 		
 	</script>
